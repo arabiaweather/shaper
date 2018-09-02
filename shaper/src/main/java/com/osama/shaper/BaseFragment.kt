@@ -34,8 +34,6 @@ open class BaseFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         fragmentComponentManager.triggerOnStop()
-        disposables.clear()
-        disposables.dispose()
     }
 
     override fun onStart() {
@@ -46,5 +44,7 @@ open class BaseFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         fragmentComponentManager.triggerOnDestroy()
+        disposables.clear()
+        disposables.dispose()
     }
 }
