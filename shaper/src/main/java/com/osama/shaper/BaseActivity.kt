@@ -49,8 +49,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        disposables.clear()
+        activityComponentManager.triggerOnDestroy()
         disposables.dispose()
+        disposables.clear()
     }
 
     private fun setupViewAnimation() {

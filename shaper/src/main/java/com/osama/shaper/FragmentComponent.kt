@@ -42,8 +42,8 @@ abstract class FragmentComponent<T : Fragment> {
     }
 
     open fun onStop(fragment: T) {
-        disposables.clear()
         disposables.dispose()
+        disposables.clear()
     }
 
     open fun onStart(fragment: T) {

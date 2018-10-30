@@ -31,9 +31,13 @@ open class ActivityComponent<T : Activity> {
 
     }
 
+    open  fun onDestroy(activity: T){
+
+    }
+
     open fun onStop(activity: T) {
-        disposables.clear()
         disposables.dispose()
+        disposables.clear()
     }
 
     open fun getComponentView(): ComponentView? {

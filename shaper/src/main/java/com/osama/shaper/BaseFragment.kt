@@ -44,7 +44,7 @@ open class BaseFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         fragmentComponentManager.triggerOnDestroy()
-        disposables.clear()
         disposables.dispose()
+        disposables.clear()
     }
 }

@@ -54,4 +54,9 @@ public class ActivityComponentManager<T extends Activity> {
         for (ActivityComponent activityComponent : components)
             activityComponent.onStop(getCastedActivity(activity));
     }
+
+    synchronized void triggerOnDestroy() {
+        for (ActivityComponent activityComponent : components)
+            activityComponent.onDestroy(getCastedActivity(activity));
+    }
 }
