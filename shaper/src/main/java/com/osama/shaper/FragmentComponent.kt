@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
+import android.support.annotation.NonNull
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,27 +31,27 @@ abstract class FragmentComponent<T : Fragment> {
 
     open fun onCreate(mSavedInstanceState: Bundle?) {}
 
-    open fun onCreateView(fragment: T, inflater: LayoutInflater, mSavedInstanceState: Bundle?) {
+    open fun onCreateView(@NonNull fragment: T, inflater: LayoutInflater, mSavedInstanceState: Bundle?) {
         this.fragment = fragment
         this.inflater = inflater
     }
 
-    open fun onViewCreated(fragment: T, view: View, mSavedInstanceState: Bundle?) {}
+    open fun onViewCreated(@NonNull fragment: T, view: View, mSavedInstanceState: Bundle?) {}
 
-    open fun onResume(fragment: T) {
+    open fun onResume(@NonNull fragment: T) {
 
     }
 
-    open fun onStop(fragment: T) {
+    open fun onStop(@NonNull fragment: T) {
         disposables.dispose()
         disposables.clear()
     }
 
-    open fun onStart(fragment: T) {
+    open fun onStart(@NonNull fragment: T) {
 
     }
 
-    open fun onDestroy(fragment: T) {
+    open fun onDestroy(@NonNull fragment: T) {
 
     }
 

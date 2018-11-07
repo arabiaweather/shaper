@@ -78,5 +78,6 @@ public class FragmentComponentManager<T extends Fragment> {
 
     public void triggerOnDestroy() {
         for (FragmentComponent component : components) component.onDestroy(getCastedFragment(fragment));
+        components.clear();
     }
 }

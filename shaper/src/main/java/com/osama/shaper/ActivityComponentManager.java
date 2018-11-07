@@ -2,6 +2,7 @@ package com.osama.shaper;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,11 +20,11 @@ public class ActivityComponentManager<T extends Activity> {
         this.activity = activity;
     }
 
-    static ActivityComponentManager getInstance(Activity activity) {
+    static ActivityComponentManager getInstance(@NonNull Activity activity) {
         return new ActivityComponentManager(activity);
     }
-
-    private T getCastedActivity(Activity activity) {
+    @NonNull
+    private T getCastedActivity(@NonNull Activity activity) {
         return (T) activity;
     }
 
@@ -58,5 +59,6 @@ public class ActivityComponentManager<T extends Activity> {
     synchronized void triggerOnDestroy() {
         for (ActivityComponent activityComponent : components)
             activityComponent.onDestroy(getCastedActivity(activity));
+        components.clear();
     }
 }

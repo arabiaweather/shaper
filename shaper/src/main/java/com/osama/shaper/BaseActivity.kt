@@ -22,8 +22,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            setupWindowAnimations()
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+//            setupWindowAnimations()
         setupViewAnimation()
 
         val mContainerView = findViewById<ViewGroup>(android.R.id.content)

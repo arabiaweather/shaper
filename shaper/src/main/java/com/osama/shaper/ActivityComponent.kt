@@ -13,7 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 open class ActivityComponent<T : Activity> {
     private var componentView: ComponentView? = null
-
+    @NonNull
     protected lateinit var activity: T
         private set
 
@@ -22,7 +22,7 @@ open class ActivityComponent<T : Activity> {
 
     protected val disposables = CompositeDisposable()
 
-    open fun onCreate( activity: T, mSavedInstanceState: Bundle?) {
+    open fun onCreate(@NonNull activity: T, mSavedInstanceState: Bundle?) {
         this.activity = activity
     }
 
@@ -31,11 +31,11 @@ open class ActivityComponent<T : Activity> {
 
     }
 
-    open  fun onDestroy(activity: T){
+    open  fun onDestroy(@NonNull activity: T){
 
     }
 
-    open fun onStop(activity: T) {
+    open fun onStop(@NonNull activity: T) {
         disposables.dispose()
         disposables.clear()
     }
