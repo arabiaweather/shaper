@@ -16,13 +16,12 @@ import android.animation.LayoutTransition.DISAPPEARING
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseActivity : AppCompatActivity() {
-    protected lateinit var activityComponentManager: ActivityComponentManager<*>
+    protected val activityComponentManager: ActivityComponentManager<*> = ActivityComponentManager(this)
     protected val disposables = CompositeDisposable()
 
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityComponentManager = ActivityComponentManager(this)
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
 //            setupWindowAnimations()
         setupViewAnimation()

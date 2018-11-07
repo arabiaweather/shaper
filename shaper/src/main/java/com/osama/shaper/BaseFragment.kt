@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import io.reactivex.disposables.CompositeDisposable
 
 open class BaseFragment : Fragment() {
-    protected lateinit var fragmentComponentManager: FragmentComponentManager<*>
+    protected val fragmentComponentManager: FragmentComponentManager<*> = FragmentComponentManager(this)
     protected val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FragmentComponentManager(this)
         fragmentComponentManager.triggerOnCreate(savedInstanceState)
     }
 
