@@ -16,13 +16,10 @@ public class ActivityComponentManager<T extends Activity> {
     private T activity;
     private List<ActivityComponent> components = new ArrayList<>();
 
-    private ActivityComponentManager(T activity) {
+     ActivityComponentManager(T activity) {
         this.activity = activity;
     }
 
-    static ActivityComponentManager getInstance(@NonNull Activity activity) {
-        return new ActivityComponentManager(activity);
-    }
     @NonNull
     private T getCastedActivity(@NonNull Activity activity) {
         return (T) activity;

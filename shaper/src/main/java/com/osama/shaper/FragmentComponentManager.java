@@ -18,12 +18,8 @@ public class FragmentComponentManager<T extends Fragment> {
     private T fragment;
     private List<FragmentComponent> components = new ArrayList<>();
 
-    private FragmentComponentManager(T fragment) {
+     FragmentComponentManager(T fragment) {
         this.fragment = fragment;
-    }
-
-    static FragmentComponentManager getInstance(Fragment fragment) {
-        return new FragmentComponentManager(fragment);
     }
 
     private T getCastedFragment(Fragment fragment) {
